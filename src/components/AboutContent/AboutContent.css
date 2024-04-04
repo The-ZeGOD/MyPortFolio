@@ -1,0 +1,137 @@
+.about{
+    width: 100%;
+    margin: 3rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    gap: 15px;
+}
+
+.about .left{
+    text-align: center;
+    margin: auto;
+    padding: 1rem;
+    max-width: 7000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about .left h1{
+    font-size: 3rem;
+}
+
+.about .left p{
+    margin: 1.5rem 0;
+}
+
+.about .right {
+    max-width: 700px;
+}
+
+.right{
+    text-align: center;
+}
+
+.right .technologies {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.right .icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow icons to wrap to the next line if needed */
+    max-width: 100%; /* Limit the width of the container */
+    margin: 0 auto;
+}
+
+.right .icon {
+    margin: 0 10px 20px;
+    position: relative;
+}
+
+.right .icon img {
+    width: 90px; /* Adjust size as needed */
+    height: 90px; /* Adjust size as needed */
+    transition: transform 0.3s ease;
+}
+
+.right .icon:hover img {
+    transform: translateY(-5px); /* Adjust the distance icons move up */
+}
+
+.right .icon::after {
+    content: attr(data-technology);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.right .icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .container{
+        display: flex;
+        justify-content: center;
+        
+    }
+    .about .left,
+    .about .right {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .about .left h1 {
+        font-size: 2.5rem;
+    }
+
+    .about .left p {
+        font-size: 1rem;
+    }
+
+    .right .icon img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon::after {
+        bottom: -40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about .left h1 {
+        font-size: 2rem;
+    }
+
+    .about .left p {
+        font-size: 0.9rem;
+    }
+
+    .right .icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .icon::after {
+        bottom: -50px;
+    }
+}
